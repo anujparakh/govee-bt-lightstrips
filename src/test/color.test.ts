@@ -1,4 +1,4 @@
-import { colorToHex, hexToColor, xorColor } from "../src"
+import { colorToHex, hexToColor, xorColor } from "../"
 
 
 test("xorColor: xor of 0x88 ^ 0x77 ^ 0x66 should be 0x99", () => {

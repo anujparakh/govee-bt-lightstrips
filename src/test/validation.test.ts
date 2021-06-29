@@ -1,6 +1,6 @@
-import { isValidColor, isValidPeripheral, isValidValue } from "../src/validation";
+import { isValidColor, isValidPeripheral, isValidValue } from "../validation";
 import noble from "@abandonware/noble";
-import * as constants from "../src/constants"
+import * as constants from "../constants"
 
 describe("test isValidValue function", () => {
     it("should return invalid for isValidValue(-1)", () => {
