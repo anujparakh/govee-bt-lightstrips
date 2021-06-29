@@ -1,6 +1,6 @@
 {
     "name": "govee-bt-lightstrips",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Govee Light Strip Bluetooth Client",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
