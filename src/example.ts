@@ -22,13 +22,14 @@ registerDiscoveryCallback(async (ledStrip) => {
     // console.log("found: " + ledStrip.name)
 
     setBrightnessOfStrip(ledStrip, 100)
+    setPowerOfStrip(ledStrip, false)
     while (true)
     {
-        for(var i = 0; i < WHITE_SHADES.length; ++i)
-        {
-            await new Promise(resolve => setTimeout(resolve, 500));
-            setColorOfStrip(ledStrip, hexToColor(WHITE_SHADES[i]), true)
-        }
+        // for(var i = 0; i < WHITE_SHADES.length; ++i)
+        // {
+        //     await new Promise(resolve => setTimeout(resolve, 500));
+        //     setColorOfStrip(ledStrip, hexToColor(WHITE_SHADES[i]), true)
+        // }
 
         // await new Promise(resolve => setTimeout(resolve, 2000));
         // setColorOfStrip(ledStrip, hexToColor("d6e1ff"), true)

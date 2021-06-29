@@ -14,19 +14,19 @@ export const isValidPeripheral = (peripheral: noble.Peripheral): string => {
     {
         return "";
     }
-    else if (advertisement.localName.includes(constants.H6182_MODEL))
-    {
-        return constants.H6182_MODEL;
-    }
-    else if (advertisement.localName.includes(constants.H6160_MODEL))
-    {
-        return constants.H6160_MODEL;
-    }
-    // TODO: Add more models
     else
     {
-        return "";
+        // Check all the models
+        for(var model of constants.MODELS)
+        {
+            if(advertisement.localName.includes(model))
+            {
+                return model
+            }
+        }
     }
+
+    return "";
 }
 
 export const isValidValue = (x: number): boolean => {

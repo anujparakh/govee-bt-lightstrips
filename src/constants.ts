@@ -6,7 +6,10 @@ import { Color } from "./color";
 // export const H6182_MODEL = "H6182"; // RGB Bluetooth + WiFi TV Backlight LED Strip
 export const H6182_MODEL = "TEMP"; // RGB Bluetooth + WiFi TV Backlight LED Strip
 export const H6160_MODEL = "H6160"; // RGB Bluetooth + WiFi Waterproof 16.4 ft. LED Strip
-
+export const MODELS = [
+    H6182_MODEL,
+    H6160_MODEL
+]
 
 // -----------------
 // General Constants
