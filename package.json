@@ -1,6 +1,6 @@
 {
     "name": "govee-bt-lightstrips",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "description": "Govee Light Strip Bluetooth Client",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -11,12 +11,17 @@
         "lint": "prettier -c src/**/*.ts",
         "test": "jest",
         "test:ci": "jest --ci",
-        "test:watch": "jest --watch",
-        "prepublishOnly": "npm run lint && npm run build"
+        "test:watch": "jest --watch"
     },
     "author": "Anuj Parakh",
     "license": "MIT",
-    "keywords": [],
+    "keywords": [
+        "Govee",
+        "BLE",
+        "H6160",
+        "H6182",
+        "LED Light Strip"
+    ],
     "dependencies": {
         "@abandonware/noble": "1.9.2-11",
         "typescript": "^4.3.4"
