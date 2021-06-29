@@ -1,13 +1,11 @@
 # govee-bt-lightstrips
+[![npm version](https://badge.fury.io/js/govee-bt-lightstrips.svg)](https://badge.fury.io/js/govee-bt-lightstrips)
+
 Simple Node module used to control Govee Light Strips over BLE.
 
 ## Installation
 
-**ToDo**
-
-## Updates
-
-**ToDo**
+`npm install govee-bt-lightstrips`
 
 ## Supported Models
 
