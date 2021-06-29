@@ -1,20 +1,32 @@
 import noble from "@abandonware/noble";
 import { Color } from "./color";
-
-const h6182_string = "H6182_7A56"; // RGB Bluetooth + WiFi TV Backlight LED Strip
+import * as constants from "./constants"
 
 // TODO: Change to UUID
 export const isH6182 = (peripheralName: string) =>
-    peripheralName.includes(h6182_string);
+    peripheralName.includes(constants.H6182_MODEL);
+export const isH6160 = (peripheralName: string) =>
+    peripheralName.includes(constants.H6160_MODEL);
 
-export const isValidPeripheral = (peripheral: noble.Peripheral) => {
+export const isValidPeripheral = (peripheral: noble.Peripheral): string => {
     const { address, advertisement } = peripheral;
     if(!advertisement.localName)
     {
-        return false;
+        return "";
     }
-
-    return (advertisement.localName.includes(h6182_string))
+    else if (advertisement.localName.includes(constants.H6182_MODEL))
+    {
+        return constants.H6182_MODEL;
+    }
+    else if (advertisement.localName.includes(constants.H6160_MODEL))
+    {
+        return constants.H6160_MODEL;
+    }
+    // TODO: Add more models
+    else
+    {
+        return "";
+    }
 }
 
 export const isValidValue = (x: number): boolean => {
