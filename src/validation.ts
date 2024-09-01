@@ -3,29 +3,18 @@ import { Color } from "./color";
 import * as constants from "./constants"
 
 // TODO: Change to UUID
-export const isH6182 = (peripheralName: string) =>
-    peripheralName.includes(constants.H6182_MODEL);
-export const isH6160 = (peripheralName: string) =>
-    peripheralName.includes(constants.H6160_MODEL);
+export const isH6182 = (peripheralName: string) => peripheralName.includes(constants.H6182_MODEL);
+export const isH6126 = (peripheralName: string) => peripheralName.includes(constants.H6126_MODEL);
+export const isH6160 = (peripheralName: string) => peripheralName.includes(constants.H6160_MODEL);
 
 export const isValidPeripheral = (peripheral: noble.Peripheral): string => {
-    const { address, advertisement } = peripheral;
-    if(!advertisement.localName)
-    {
-        return "";
-    }
-    else
-    {
+    const { /*address,*/ advertisement } = peripheral;
+    if(advertisement.localName) {
         // Check all the models
-        for(var model of constants.MODELS)
-        {
-            if(advertisement.localName.includes(model))
-            {
-                return model
-            }
+        for(let model of constants.MODELS) {
+            if(advertisement.localName.includes(model)) return model
         }
     }
-
     return "";
 }
 

@@ -1,7 +1,6 @@
-import noble from "@abandonware/noble"
-import { GoveeLightStrip } from "./goveeLightStrip"
-import { Color, colorToHex, xorColor } from "./color"
-import { hexify } from "./util";
+import {GoveeLightStrip} from "./goveeLightStrip"
+import {Color, colorToHex, xorColor} from "./color"
+import {hexify} from "./util";
 import * as constants from "./constants"
 
 enum MessageType {
@@ -34,7 +33,7 @@ function assembleMessageWithChecksum(messageType: MessageType, specialByte: numb
 
 export const setLightStripBrightness = (lightStrip: GoveeLightStrip, newVal: number): GoveeLightStrip =>
 {
-    sendHexMessage(lightStrip, assembleMessageWithChecksum(MessageType.Brightness, newVal, constants.EMPTY_COLOR, 0x0, constants.EMPTY_COLOR))
+    void sendHexMessage(lightStrip, assembleMessageWithChecksum(MessageType.Brightness, newVal, constants.EMPTY_COLOR, 0x0, constants.EMPTY_COLOR))
     lightStrip.brightness = newVal
     return lightStrip
 }
@@ -42,7 +41,7 @@ export const setLightStripBrightness = (lightStrip: GoveeLightStrip, newVal: num
 export const setLightStripPower = (lightStrip: GoveeLightStrip, newVal: boolean): GoveeLightStrip =>
 {
     let flag = newVal ? 1 : 0;
-    sendHexMessage(lightStrip, assembleMessageWithChecksum(MessageType.Power, flag, constants.EMPTY_COLOR, 0x0, constants.EMPTY_COLOR))
+    void sendHexMessage(lightStrip, assembleMessageWithChecksum(MessageType.Power, flag, constants.EMPTY_COLOR, 0x0, constants.EMPTY_COLOR))
 
     lightStrip.power = newVal
     return lightStrip
@@ -52,11 +51,11 @@ export const setLightStripColor = (lightStrip: GoveeLightStrip, newColor: Color,
 {
     if(isWhite)
     {
-        sendHexMessage(lightStrip, assembleMessageWithChecksum(MessageType.Color, 0x2, constants.EMPTY_COLOR, 0x1, newColor))
+        void sendHexMessage(lightStrip, assembleMessageWithChecksum(MessageType.Color, 0x2, constants.EMPTY_COLOR, 0x1, newColor))
     }
     else
     {
-        sendHexMessage(lightStrip, assembleMessageWithChecksum(MessageType.Color, 0x2, newColor, 0x0, constants.EMPTY_COLOR))
+        void sendHexMessage(lightStrip, assembleMessageWithChecksum(MessageType.Color, 0x2, newColor, 0x0, constants.EMPTY_COLOR))
     }
 
     lightStrip.color = newColor
@@ -64,7 +63,7 @@ export const setLightStripColor = (lightStrip: GoveeLightStrip, newColor: Color,
 }
 
 export const sendKeepAlive = (lightStrip: GoveeLightStrip) => {
-    sendHexMessage(lightStrip, constants.KEEP_ALIVE_PACKET)
+    void sendHexMessage(lightStrip, constants.KEEP_ALIVE_PACKET)
 }
 
 export const setInitialState = (lightStrip: GoveeLightStrip) =>

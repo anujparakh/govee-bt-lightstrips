@@ -1,4 +1,4 @@
-import { isValidColor, isValidPeripheral, isValidValue } from "../validation";
+import { isH6126, isH6160, isH6182, isValidColor, isValidPeripheral, isValidValue } from "../validation";
 import noble from "@abandonware/noble";
 import * as constants from "../constants"
 
@@ -52,6 +52,21 @@ describe("test isValidPeripheral", () => {
 
     it("should return invalid for empty model", () => {
         expect(isValidPeripheral({ "advertisement": { "localName": ""} } as noble.Peripheral)).toBe("")
+    })
+
+})
+
+describe("test strip identification", () => {
+
+    it("should return true for accepted matching model type", () => {
+        expect(constants.MODELS.some((model) => model === constants.H6126_MODEL)).toBe(true)
+        expect(isH6126(constants.H6126_MODEL)).toBe(true)
+    })
+
+    it("should return false for accepted non-matching model type", () => {
+        expect(constants.MODELS.some((model) => model === constants.H6126_MODEL)).toBe(true)
+        expect(isH6160(constants.H6126_MODEL)).toBe(false)
+        expect(isH6182(constants.H6126_MODEL)).toBe(false)
     })
 
 })

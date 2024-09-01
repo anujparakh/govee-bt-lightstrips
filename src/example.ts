@@ -1,6 +1,4 @@
-import { hexToColor } from "./color";
-import { WHITE_SHADES } from "./whiteShades";
-import { startDiscovery, stopDiscovery, debug, GoveeLightStrip, Color, registerDiscoveryCallback, setBrightnessOfStrip, setColorOfStrip, setPowerOfStrip } from "./index";
+import {debug, registerDiscoveryCallback, setBrightnessOfStrip, setPowerOfStrip, startDiscovery} from "./index";
 import promptSync from 'prompt-sync';
 
 const prompt = promptSync();
@@ -8,7 +6,7 @@ const prompt = promptSync();
 
 debug(true);
 
-startDiscovery()
+void startDiscovery()
 
 
 registerDiscoveryCallback(async (ledStrip) => {
